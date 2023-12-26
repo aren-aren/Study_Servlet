@@ -28,7 +28,7 @@
 			<% for(DepartmentDTO dto : list) { %>
 				<tr>
 					<td><%= dto.getDepartment_id() %></td>
-					<td><%= dto.getDepartment_name() %></td>
+					<td><a href="./detail.jsp?department_id=<%=dto.getDepartment_id()%>"><%= dto.getDepartment_name() %></a></td>
 					<td><%= dto.getManager_id() %></td>
 					<td><%= dto.getLocation_id() %></td>
 				</tr>
