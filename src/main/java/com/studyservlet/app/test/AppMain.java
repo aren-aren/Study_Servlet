@@ -2,8 +2,12 @@ package com.studyservlet.app.test;
 
 import java.util.List;
 
+import com.studyservlet.app.country.CountryDAO;
 import com.studyservlet.app.departments.DepartmentDAO;
 import com.studyservlet.app.departments.DepartmentDTO;
+import com.studyservlet.app.employee.EmployeeDAO;
+import com.studyservlet.app.location.LocationDAO;
+import com.studyservlet.app.location.LocationDTO;
 import com.studyservlet.app.regions.RegionDAO;
 import com.studyservlet.app.regions.RegionDTO;
 import com.studyservlet.app.views.View;
@@ -14,6 +18,10 @@ public class AppMain {
 
 		DepartmentDAO departmentDAO = new DepartmentDAO();
 		RegionDAO regionDAO = new RegionDAO();
+		CountryDAO countryDAO = new CountryDAO();
+		LocationDAO locationDAO = new LocationDAO();
+		EmployeeDAO employeeDAO = new EmployeeDAO();
+		
 		View view = new View();
 		
 		try {
@@ -33,15 +41,25 @@ public class AppMain {
 //				System.out.println("없는 아이디");
 //			}
 			
-			DepartmentDTO departmentDTO = new DepartmentDTO();
-			departmentDTO.setDepartment_id(20);
-			departmentDTO = departmentDAO.getDetail(departmentDTO);
+//			DepartmentDTO departmentDTO = new DepartmentDTO();
+//			departmentDTO.setDepartment_id(20);
+//			departmentDTO = departmentDAO.getDetail(departmentDTO);
 			
-			if(departmentDTO != null) {
-				System.out.println(departmentDTO.getDepartment_name());
-			} else {
-				System.out.println("없는 아이디");
-			}
+//			if(departmentDTO != null) {
+//				System.out.println(departmentDTO.getDepartment_name());
+//			} else {
+//				System.out.println("없는 아이디");
+//			}
+			
+			System.out.println("Location ==============================");
+			view.locationView(locationDAO.getList());
+			System.out.println("Employee ==============================");
+			view.employeeView(employeeDAO.getList());
+			System.out.println("Country ==============================");
+			view.countryView(countryDAO.getList());
+			
+			
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

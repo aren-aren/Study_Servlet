@@ -35,7 +35,7 @@ public class RegionDAO {
 	public RegionDTO getDetail(RegionDTO dto) throws Exception {
 		Connection con = DBConnector.getConnector();
 		String sql = "SELECT * FROM REGIONS WHERE REGION_ID = ?";
-		
+		//name
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, dto.getRegion_id());
 		
