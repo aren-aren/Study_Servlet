@@ -38,5 +38,6 @@
 			<td><%=dto.getLocation_id() %></td>
 		</tr>
 	</table>
+	<a href="./update.jsp?department_id=<%= id %>">수정</a>
 </body>
 </html>

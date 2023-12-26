@@ -35,5 +35,6 @@
 			<% } %>
 		</tbody>
 	</table>
+	<a href="./add.jsp">목록 추가</a>
 </body>
 </html>

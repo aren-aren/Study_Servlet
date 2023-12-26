@@ -20,5 +20,15 @@
 <body>
 	<h1>Region Detail</h1>
 	<h3><%= dto.getRegion_name() %></h3>
+	<input type="hidden" value="<%= dto.getRegion_id() %>">
+	<button id="btn">수정</button>
+	
+	<script type="text/javascript">
+		let btn = document.getElementById("btn");
+		btn.addEventListener("click", function(){
+			let rId = document.querySelector("input[type=hidden]").value;
+			location.href="./update.jsp?region_id="+rId;
+		});
+	</script>
 </body>
 </html>

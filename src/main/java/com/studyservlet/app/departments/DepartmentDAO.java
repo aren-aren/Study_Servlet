@@ -9,6 +9,43 @@ import java.util.List;
 import com.studyservlet.app.util.DBConnector;
 
 public class DepartmentDAO {
+	
+	public int update(DepartmentDTO dto) throws Exception {
+		Connection con = DBConnector.getConnector();
+		
+		String sql = "UPDATE DEPARTMENTS SET DEPARTMENT_NAME = ? , MANAGER_ID = ? , LOCATION_ID = ? WHERE DEPARTMENT_ID=?";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, dto.getDepartment_name());
+		st.setInt(2, dto.getManager_id());
+		st.setInt(3, dto.getLocation_id());
+		st.setInt(4, dto.getDepartment_id());
+		
+		int result = st.executeUpdate();
+		
+		DBConnector.disConnect(st, con);
+		
+		return result;
+	}
+	
+	public int add(DepartmentDTO dto) throws Exception {
+		Connection con = DBConnector.getConnector();
+		
+		String sql = "INSERT INTO DEPARTMENTS VALUES (?,?,?,?)";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, dto.getDepartment_id());
+		st.setString(2, dto.getDepartment_name());
+		st.setInt(3, dto.getManager_id());
+		st.setInt(4, dto.getLocation_id());
+		
+		int result = st.executeUpdate();
+		
+		DBConnector.disConnect(st, con);
+		
+		return result;
+	}
+	
 	public List<DepartmentDTO> getList() throws Exception {
 		//DB접속 후 부서테이블의 모든 정보를 출력
 		/*

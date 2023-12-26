@@ -32,5 +32,6 @@
 			<% } %>
 		</tbody>
 	</table>
+	<a href="./add.jsp">대륙 추가</a>
 </body>
 </html>
