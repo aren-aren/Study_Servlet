@@ -1,64 +1,33 @@
 package com.studyservlet.app.test;
 
-import java.util.List;
+import java.sql.Date;
+import java.util.Map;
 
-import com.studyservlet.app.country.CountryDAO;
-import com.studyservlet.app.departments.DepartmentDAO;
-import com.studyservlet.app.departments.DepartmentDTO;
 import com.studyservlet.app.employee.EmployeeDAO;
-import com.studyservlet.app.location.LocationDAO;
-import com.studyservlet.app.location.LocationDTO;
-import com.studyservlet.app.regions.RegionDAO;
-import com.studyservlet.app.regions.RegionDTO;
-import com.studyservlet.app.views.View;
+import com.studyservlet.app.employee.EmployeeDTO;
+
+import oracle.sql.DATE;
 
 public class AppMain {
 
 	public static void main(String[] args) {
-
-		DepartmentDAO departmentDAO = new DepartmentDAO();
-		RegionDAO regionDAO = new RegionDAO();
-		CountryDAO countryDAO = new CountryDAO();
-		LocationDAO locationDAO = new LocationDAO();
-		EmployeeDAO employeeDAO = new EmployeeDAO();
+		EmployeeDAO dao = new EmployeeDAO();
 		
-		View view = new View();
+		EmployeeDTO dto = new EmployeeDTO();
+		dto.setEmployee_id(Integer.parseInt("207"));
+		dto.setFirst_name("Daniel");
+		dto.setLast_name("Last");
+		dto.setEmail("email@mailiam.mai");
+		dto.setPhone_number("010-1231-4521");
+		dto.setHire_date(Date.valueOf("2023-12-27"));
+		dto.setJob_id("IT_PROG");
+		dto.setSalary(Double.parseDouble("5000"));
+		dto.setCommission_pct(0.12);
+		dto.setManager_id(205);
+		dto.setDepartment_id(60);
 		
 		try {
-//			List<RegionDTO> list = regionDAO.getList();
-//			view.regionView(list);
-//			System.out.println("=======================================================");
-//			List<DepartmentDTO> dlist = departmentDAO.getList();
-//			view.departmentView(dlist);
-			
-//			RegionDTO regionDTO = new RegionDTO();
-//			regionDTO.setRegion_id(6);
-//			regionDTO = regionDAO.getDetail(regionDTO);
-//			
-//			if(regionDTO != null) {
-//				System.out.println(regionDTO.getRegion_name());
-//			} else {
-//				System.out.println("없는 아이디");
-//			}
-			
-//			DepartmentDTO departmentDTO = new DepartmentDTO();
-//			departmentDTO.setDepartment_id(20);
-//			departmentDTO = departmentDAO.getDetail(departmentDTO);
-			
-//			if(departmentDTO != null) {
-//				System.out.println(departmentDTO.getDepartment_name());
-//			} else {
-//				System.out.println("없는 아이디");
-//			}
-			
-			System.out.println("Location ==============================");
-			view.locationView(locationDAO.getList());
-			System.out.println("Employee ==============================");
-			view.employeeView(employeeDAO.getList());
-			System.out.println("Country ==============================");
-			view.countryView(countryDAO.getList());
-			
-			
+			int result = dao.add(dto);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
