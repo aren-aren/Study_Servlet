@@ -2,6 +2,8 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>Study_Servlet</display-name>
   
+  <!-- web.xml -> 배포 서술자 -->
+  
   <servlet>
   	<servlet-name>fc</servlet-name>
   	<!--Tomcat이 생성하려는 클래스의 풀 패키지 명을 명시 -->
@@ -9,9 +11,9 @@
   	<servlet-class>com.studyservlet.app.controllers.FrontController</servlet-class>
   </servlet>
   
-  <!-- <servlet-mapping>
+  <servlet-mapping>
   	<servlet-name>fc</servlet-name>
-  	<url-pattern>/*</url-pattern>
-  </servlet-mapping> -->
+  	<url-pattern>/index.do</url-pattern>
+  </servlet-mapping> 
   
 </web-app>
