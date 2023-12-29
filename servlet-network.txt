@@ -1,0 +1,36 @@
+servlet
+web.xml 설정
+/  <-  는 배포시 webapp 하위의 폴더부터
+tomcat으로 포트번호, 루트주소 설정
+
+
+
+DAO, DTO - Model
+JSP - View
+Controller
+(MVC패턴)
+
+
+
+요청 -> controller -> dao -> db -> dao에서 dto를 생성 -> controller에 돌려줌 -> jsp로 dto를 가져다 주고 html을 생성 -> controller로 돌려줌 -> client
+
+
+
+요청이 들어오면 tomcat이 요청에 대한 모든 정보를 request객체를 만들어 집어넣음
+request -> 요청에 대한 정보
+response -> 응답에 대한 정보
+
+
+client <--> server -----┬-------------------------------------------------------------------------------------------
+	    |	응답이 나가면 html은 소멸
+	    |		|
+	    |	Controller <-----요청한 리소스의 DAO에 데이터 요청-----> DAO <---SQL을 보내고 데이터를 받아옴---> DB
+	    |           |                                                     (Model)
+	    |	받은 데이터로 JSP가 html을 만들어줌
+	    |	 	|                        (View)
+	    |          JSP
+	    ---------------------------------------------------------------------------------------------------------
+
+
+Application ⊃ Session ⊃ request ⊃ page
+생명주기는 Application 이 가장 길다

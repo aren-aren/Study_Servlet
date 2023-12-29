@@ -2,15 +2,17 @@
 <%@page import="com.studyservlet.app.regions.RegionDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% 
-	RegionDAO dao = new RegionDAO();
+<%-- 
+/*  	RegionDAO dao = new RegionDAO();
 	RegionDTO dto = new RegionDTO();
 	
 	String id = request.getParameter("region_id");
 	int num = Integer.parseInt(id);
 	dto.setRegion_id(num);
-	dto = dao.getDetail(dto);
-%>
+	dto = dao.getDetail(dto); */
+	
+	RegionDTO dto = (RegionDTO)request.getAttribute("detail");
+--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +21,9 @@
 </head>
 <body>
 	<h1>Region Detail</h1>
-	<h3><%= dto.getRegion_name() %></h3>
-	<input type="hidden" value="<%= dto.getRegion_id() %>">
+	<h3>${ requestScope.detail.region_id }</h3>
+	<h3>${ requestScope.detail.region_name }</h3>
+	<input type="hidden" value="${ requestScope.detail.region_id }">
 	<button id="btn">수정</button>
 	
 	<script type="text/javascript">
